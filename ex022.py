@@ -1,0 +1,8 @@
+nome = input('Qual se nome completo? ')
+print(nome)
+print(nome.upper())
+print(nome.lower())
+letras = nome.replace(' ', '')
+print('O nome completo tem {} letras.'.format(len(letras)))
+nome_dividido = nome.split()
+print('O primeiro nome tem {} letras'.format(len(nome_dividido[0])))

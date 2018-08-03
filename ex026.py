@@ -1,0 +1,5 @@
+frase = input('Digite uma frase qualquer: ')
+a = frase.count('a')
+a1 = frase.find('a')
+a_ultimo = frase.rfind('a')
+print('Tem {} a na frase. O primeiro está na posição {} e o último está na posição {}.'.format(a, a1, a_ultimo))
