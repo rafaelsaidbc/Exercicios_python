@@ -1,32 +1,31 @@
 '''Faça um programa que jogue par ou ímpar com o computador. O jogo só será interrompido quando o jogador perder,
 mostrando o total de vitórias consecutivas que ele conquistou no final do jogo.'''
 from random import randint
-
-jogador = ''
-jogada_jogador = 0
-computador = 0
-par = 'P'
-impar = 'I'
-jogadas = 0
+vitorias = 0
 while True:
-    jogador = str(input('Você quer par ou ímpar [Digite P/I]? ').upper().strip())
-    jogada_jogador = int(input('Qual o valor que você vai jogar? '))
-    computador = randint(0, 10)
-    total = jogada_jogador + computador
-    if jogador == par and (jogada_jogador + computador) % 2 == 0:
-        print(f'Você jogou {jogada_jogador} e o computador {computador}, o total deu {total}')
-        print('O jogador venceu.')
-        jogadas += 1
-    elif jogador == impar and (jogada_jogador + computador) % 2 != 0:
-        print(f'Você jogou {jogada_jogador} e o computador {computador}, o total deu {total}.')
-        print('O jogador venceu.')
-        jogadas += 1
-    else:
-        print(f'Você jogou {jogada_jogador} e o computador {computador}, o total deu {total}.')
-        print('O computador venceu.')
-        jogadas += 1
-        break
-        jogador = str(input('Você quer par ou ímpar [Digite P/I]? ').upper().strip())
-        jogada_jogador = int(input('Qual o valor que você vai jogar? '))
+    escolha = str(input('Você quer par ou ímpar? [P/I]').upper().strip())
+    if escolha in 'PI':
+        jogador = int(input('Jogue seu número: '))
         computador = randint(0, 10)
-print(f'Foram necessárias {jogadas} jogadas para você perder.')
+        soma = jogador + computador
+        if escolha == 'P':
+            if soma % 2 == 0:
+                print(f'Você jogou {jogador} e o computador {computador}.')
+                print(f'A soma foi {soma}. O jogador venceu.')
+                vitorias += 1
+            else:
+                print(f'Você jogou {jogador} e o computador {computador}.')
+                print(f'A soma foi {soma}. O computador venceu')
+                break
+        elif escolha == 'I':
+            if soma % 2 != 0:
+                print(f'Você jogou {jogador} e o computador {computador}.')
+                print(f'A soma foi {soma}. O jogador venceu.')
+                vitorias += 1
+            else:
+                print(f'Você jogou {jogador} e o computador {computador}.')
+                print(f'A soma foi {soma}. O computador venceu.')
+                break
+    else:
+        print('Escolha um opção válida.')
+print(f'Você venceu {vitorias} vezes.')
